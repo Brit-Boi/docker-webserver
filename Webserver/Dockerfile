@@ -1,2 +1,5 @@
 FROM node:12-alpine
-RUN ["echo", "hello!"]
+RUN yarn -y add http-server
+COPY index.html /var/www/html/
+CMD ["http-server"]
+EXPOSE 80
