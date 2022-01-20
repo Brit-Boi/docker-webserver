@@ -1,6 +1,6 @@
 FROM node:12-alpine
-RUN yarn update
-RUN yarn -y add http-server
+RUN apk add --no-cache add http-server
 COPY index.html /var/www/html/
+RUN yarn install --production
 CMD ["http-server"]
 EXPOSE 80
