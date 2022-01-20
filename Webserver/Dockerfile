@@ -1,6 +1,5 @@
-FROM node:12-alpine
-RUN apk add --no-cache add httpd
+FROM centos:latest
+RUN yum -y install httpd
 COPY index.html /var/www/html/
-RUN yarn install --production
-CMD ["http-server"]
+CMD ["/usr/sgin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
