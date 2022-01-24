@@ -5,6 +5,8 @@ on:
     branches: [ chief ]
   pull_request:
     branches: [ chief ]
+  release:
+    types: [ published ]
 
 jobs:
 
