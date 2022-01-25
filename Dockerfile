@@ -39,7 +39,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 
 # Copy start script and define command for container to run upon startup
 COPY start.sh /start.sh
-CMD ["chmod +x /start.sh", "./start.sh"]
+CMD ["./start.sh"]
 
 # Expose http and https ports
-EXPOSE 80 443
+EXPOSE 80
