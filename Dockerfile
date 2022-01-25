@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 LABEL maintainer="Quinn Henry"
-LABEL version="0.1"
+LABEL version="0.2"
 LABEL description="Custom NGINX Server Running on Ubuntu 20.04"
 
 # Disable package install prompt
@@ -35,7 +35,7 @@ RUN mkdir -p /run/php && \
     chown -R www-data:www-data /run/php
 
 # Volumes
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx"]
 
 # Run supervisord service
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
