@@ -38,14 +38,7 @@ RUN mkdir -p /run/php && \
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Run supervisord service
-CMD ["/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
 
 # Expose http and https ports
 EXPOSE 80
-
-
-# Old COPY / CMD, still here for safe keeping
-
-# Copy start script and define command for container to run upon startup
-#COPY start.sh /start.sh
-#CMD ["./start.sh"]
