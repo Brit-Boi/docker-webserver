@@ -4,6 +4,10 @@ Custom docker webserver to be used in Kubernetes deployment testing
 # Products used
  - Docker
  - NGINX Webserver
+ - Ubuntu 20.04
+
+# Prebuilt Image
+You can find a prebuilt image at on [docker.io/r/TheQuib/docker-webserver](http://docker.io/r/thequib/docker-webserver)
 
 # Build Docker Container
  - Clone the repository
