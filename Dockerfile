@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt update
 
 # Install apt-utils
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+RUN apt install -y --no-install-recommends apt-utils
 
 RUN apt upgrade
 
