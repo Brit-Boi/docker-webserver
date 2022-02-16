@@ -12,7 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update
 
 # Install apt-utils
-RUN apt install apt-utils
+RUN apt-get install -y --no-install-recommends apt-utils
 
 # Install nginx, php-fpm and supervisord
 RUN apt install -y nginx php-fpm supervisor && \
