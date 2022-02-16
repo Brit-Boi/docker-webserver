@@ -15,7 +15,7 @@ RUN apt update
 # Install apt-utils
 RUN apt install -y --no-install-recommends apt-utils
 
-RUN apt upgrade
+RUN apt upgrade -y
 
 # Install nginx, php-fpm and supervisord
 RUN apt install -y nginx php-fpm supervisor && \
