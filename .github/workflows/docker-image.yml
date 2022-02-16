@@ -17,4 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nginx-webserver:latest
+      run: |
+        docker build . --file Dockerfile --tag nginx-docker:latest
+        docker run ghcr.io/TheQuib/nginx-docker:latest
+        docker push ghcr.io/TheQuib/nginx-docker:latest
