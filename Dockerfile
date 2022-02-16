@@ -7,6 +7,7 @@ LABEL description="Custom NGINX Server Running on Ubuntu 20.04"
 
 # Disable package install prompt
 ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 
 # Update repositories
 RUN apt update
@@ -38,6 +39,8 @@ COPY supervisord.conf ${supervisor_conf}
 RUN mkdir -p /run/php && \
     chown -R www-data:www-data /var/www/html && \
     chown -R www-data:www-data /run/php
+
+ENV DEBIAN_FRONTEND teletype
 
 # Volumes
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
