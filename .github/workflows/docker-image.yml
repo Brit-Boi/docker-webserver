@@ -2,8 +2,9 @@ name: Publish Container
 
 on:
   push:
-    branches:
-      - master
+    branches: [ chief ]
+  pull_request:
+    branches: [ chief ]
 
 jobs:
   build:
