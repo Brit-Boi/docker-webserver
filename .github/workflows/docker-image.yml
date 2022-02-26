@@ -14,18 +14,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
   
+    - name: Login to Dockerhub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DH_USERNAME }}
+        password: ${{ secrets.DH_TOKEN }}
+
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
         username: TheQuib
         password: ${{ secrets.GH_CONTAINER_REGISTRY_SECRET }}
-
-    - name: Login to Dockerhub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DH_USERNAME }}
-        password: ${{ secrets.DH_TOKEN }}
     
     - name: Build the Docker image
       uses: docker/build-push-action@v2
