@@ -2,9 +2,8 @@ name: Publish Container
 
 on:
   push:
-    branches: [ chief ]
-  pull_request:
-    branches: [ chief ]
+    branches:
+      - master
 
 jobs:
   build:
@@ -32,7 +31,6 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
         push: true
         tags: |
           ghcr.io/qhequib/nginx-docker:latest
