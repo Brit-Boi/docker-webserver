@@ -1,15 +1,14 @@
 # Docker Webserver
-Custom docker webserver to be used in Kubernetes deployment testing
+Custom docker used for learning custom image building, and used in my [Kubernetes Cluster Build](https://github.com/TheQuib/k3s)
 
-# Products used
+# What does this use?
  - Docker
- - NGINX Webserver
- - Ubuntu 20.04
+   - Uses base image `nginx:alpine`
 
 # Prebuilt Image
 You can find a prebuilt image at on [docker.io/r/TheQuib/docker-webserver](http://docker.io/r/thequib/docker-webserver)
 
-# Build Docker Container
+# Build it Yourself
  - Clone the repository
  - Run the command `sudo docker build -t webserver:latest .`
    - This will create a container on the local machine called `webserver` with the tag `latest`

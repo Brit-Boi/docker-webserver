@@ -1,52 +1,13 @@
 # Container base image
-FROM ubuntu:20.04
+FROM nginx:alpine
 
-LABEL maintainer="Quinn Henry"
-LABEL version="0.1"
-LABEL description="Custom NGINX Server Running on Ubuntu 20.04"
+# Copy source files into container
+COPY src/html /usr/share/nginx/html
 
-# Disable package install prompt
-ARG DEBIAN_FRONTEND=noninteractive
-ENV DEBIAN_FRONTEND noninteractive
+# Port to be exposed
+#   Here for documentation only
+# EXPOSE  80
 
-# Update repositories
-RUN apt update
-
-# Install apt-utils
-RUN apt install -y --no-install-recommends apt-utils
-
-RUN apt upgrade -y
-
-# Install nginx, php-fpm and supervisord
-RUN apt install -y nginx php-fpm supervisor && \
-    rm -rf /var/lib/apt/list/* && \
-    apt clean
-
-# Environment variables
-ENV nginx-vhost /etc/nginx/sites/available/default
-ENV php_conf /etc/php/7.4/fpm/php.ini
-ENV nginx_conf /etc/nginx/nginx.conf
-ENV supervisor_conf /etc/supervisor/supervisord.conf
-
-# Enable PHP-fpm on virtualhost config
-COPY default ${nginx_vhost}
-RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' ${php_conf} && \
-    echo "\ndaemon off;" >> ${nginx_conf}
-
-# Copy supervisor config
-COPY supervisord.conf ${supervisor_conf}
-
-RUN mkdir -p /run/php && \
-    chown -R www-data:www-data /var/www/html && \
-    chown -R www-data:www-data /run/php
-
-ENV DEBIAN_FRONTEND teletype
-
-# Volumes
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
-
-# Run supervisord service
-CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
-
-# Expose http and https ports
-EXPOSE 80
+# Run nginx
+#   The base image will do this automatically
+# CMD ["nginx", "-g", "daemon off;"]
