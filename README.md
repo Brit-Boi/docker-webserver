@@ -1,5 +1,5 @@
 # Docker Webserver
-Custom docker used for learning custom image building, and used in my [Kubernetes Cluster Build](https://github.com/TheQuib/k3s)
+Custom docker image used for learning custom image building, and used in my [Kubernetes Cluster Build](https://github.com/TheQuib/k3s)
 
 # What does this use?
  - Docker
