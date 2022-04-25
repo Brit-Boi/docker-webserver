@@ -6,7 +6,8 @@ Custom docker image used for learning custom image building, and used in my [Kub
    - Uses base image `nginx:alpine`
 
 # Prebuilt Image
-You can find a prebuilt image at on [docker.io/r/TheQuib/docker-webserver](http://docker.io/r/thequib/docker-webserver)
+You can find a prebuilt image right here on GitHub at  [ghcr.io/thequib/nginx-docker:latest](http://ghcr.io/thequib/nginx-docker:latest)
+ - Or run `docker pull ghcr.io/thequib/nginx-docker:latest` to get it now
 
 # Build it Yourself
  - Clone the repository
