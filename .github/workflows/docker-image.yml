@@ -35,4 +35,4 @@ jobs:
         push: true
         tags: |
           thequib/nginx-docker:latest
-          ghcr.io/qhequib/nginx-docker:latest
+          ghcr.io/${{ secrets.GH_CONTAINER_REGISTRY_USER}}/nginx-docker:latest
